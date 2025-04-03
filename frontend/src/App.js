@@ -1,19 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import CategoryPage from './components/CategoryPage';
-import PostManagement from './components/PostManagement';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CategoryPage from "./pages/CategoryPage";
+import PostDetails from "./pages/PostDetails";
+import Navbar from "./components/Navbar";
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/category/:category" element={<CategoryPage />} />
-                <Route path="/manage" element={<PostManagement />} />
-            </Routes>
-        </Router>
-    );
+  return (
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/category/:categoryId" element={<CategoryPage />} />
+        <Route path="/post/:postId" element={<PostDetails />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
